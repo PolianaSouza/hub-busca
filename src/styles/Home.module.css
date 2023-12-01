@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  height: 93vh;
 }
 
 .cardSearch {
@@ -11,8 +11,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  width: 90%;
 }
 
 .logo {
@@ -24,4 +23,12 @@
 
 .strong {
   color: #6a46be;
+}
+
+.description {
+  font-size: 1.5em;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  color: #a976eb;
+  text-align: center;
 }
