@@ -1,0 +1,24 @@
+.links {
+  font-size: 1.2rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+}
+
+.linksDecoration {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.active {
+  color: #e8f629;
+  text-decoration: none;
+  border-bottom: 3px solid #a976eb;
+  padding: 0 5px 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.linksDecoration:hover,
+.active:hover {
+  color: #a976eb;
+}
