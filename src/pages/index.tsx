@@ -46,6 +46,7 @@ export default function Home() {
         <h1 className={styles.logo}>
           <strong className={styles.strong}>HUB</strong>usca
         </h1>
+        <p className={styles.description}>Encontre Devs no GitHub</p>
         <Search findUser={findUser} />
         {user && <UserCard user={user} />}
       </div>
