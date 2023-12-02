@@ -1,13 +1,17 @@
-.navBar {
+.header {
   top: 0;
   width: 100vw;
-  height: 60px;
+  height: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 15px;
   background-color: #6a46be;
+}
+
+header .menuIcon {
+  display: none;
 }
 
 .decoration {
@@ -25,10 +29,46 @@
   color: #e8f629;
 }
 
-.containerLinks {
+.navbar {
   width: 100%;
   max-width: 400px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  header .menuIcon {
+    display: flex;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+
+  header .menuIcon:hover {
+    opacity: 0.5;
+  }
+
+  .logoAndMenu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+  }
 }
