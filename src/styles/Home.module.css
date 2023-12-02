@@ -32,3 +32,17 @@
   color: #a976eb;
   text-align: center;
 }
+
+@media screen and (max-width: 800px) {
+  .cardSearch {
+    width: 100%;
+  }
+
+  .logo {
+    font-size: 3em;
+  }
+
+  .description {
+    font-size: 1.1em;
+  }
+}
