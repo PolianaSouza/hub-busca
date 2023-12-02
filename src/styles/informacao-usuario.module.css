@@ -67,6 +67,7 @@
 .cardMessage p {
   font-size: 1.5rem;
   color: #505050;
+  text-align: center;
 }
 
 .btnGoBack {
@@ -117,5 +118,24 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
+  }
+
+  .containerNotUser {
+    height: 80vh;
+  }
+
+  .cardMessage h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .cardMessage p {
+    font-size: 1.2rem;
+    padding: 0 10px;
+  }
+
+  .btnGoBack {
+    font-size: 1.2rem;
+    width: 90%;
   }
 }

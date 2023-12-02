@@ -34,6 +34,9 @@
 }
 
 @media screen and (max-width: 800px) {
+  .mainPage {
+    height: 80vh;
+  }
   .cardSearch {
     width: 100%;
   }
