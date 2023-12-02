@@ -13,7 +13,6 @@ export default function Navilinks({
   ...rest
 }: ActiveLinkProps) {
   const pathName = usePathname();
-  console.log("pathName", pathName);
 
   const isActive = pathName === href;
 
