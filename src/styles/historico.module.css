@@ -18,6 +18,16 @@
   padding: 0 30px;
 }
 
+.notUser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #565555;
+  height: 90vh;
+}
+
 .usersCards {
   width: 100%;
   display: grid;
