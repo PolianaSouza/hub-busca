@@ -9,6 +9,7 @@ import { UserProps } from "@/types/user";
 import { ProjectProps } from "@/types/projects";
 import ProjectUserCard from "@/components/user/ProjectUserCard";
 import { ChevronLeft } from "lucide-react";
+import Loading from "@/components/common/LoadingComponent";
 
 export default function InformationUser() {
   const router = useRouter();
@@ -18,60 +19,80 @@ export default function InformationUser() {
   );
 
   const [projectsUser, setProjectsUser] = useState<ProjectProps[] | null>(null);
+  const [loadingActive, setLoadingActive] = useState(true);
 
   useEffect(() => {
     async function getUserInfo() {
-      const { data } = await api.get(`users/${user}`);
+      try {
+        const { data } = await api.get(`users/${user}`);
 
-      const {
-        avatar_url,
-        name,
-        login,
-        location,
-        followers,
-        following,
-        id,
-        public_repos,
-        repos_url,
-      } = data;
+        const {
+          avatar_url,
+          name,
+          login,
+          location,
+          followers,
+          following,
+          id,
+          public_repos,
+          repos_url,
+        } = data;
 
-      const userData: UserProps = {
-        avatar_url,
-        name,
-        login,
-        location,
-        followers,
-        following,
-        id,
-        public_repos,
-        repos_url,
-      };
+        const userData: UserProps = {
+          avatar_url,
+          name,
+          login,
+          location,
+          followers,
+          following,
+          id,
+          public_repos,
+          repos_url,
+        };
 
-      setUserInformations(userData);
+        setUserInformations(userData);
+      } catch (error) {
+        console.log(error);
+      }
     }
 
     async function getProjectsUser(user: string) {
-      const { data } = await api.get(`users/${user}/repos`);
+      try {
+        const { data } = await api.get(`users/${user}/repos`);
 
-      const projectData: ProjectProps[] = data.map((project: any) => ({
-        name: project.name,
-        language: project.language,
-        description: project.description,
-        html_url: project.html_url,
-        created_at: new Date(project.created_at),
-        pushed_at: new Date(project.pushed_at),
-      }));
+        const projectData: ProjectProps[] = data.map((project: any) => ({
+          name: project.name,
+          language: project.language,
+          description: project.description,
+          html_url: project.html_url,
+          created_at: new Date(project.created_at),
+          pushed_at: new Date(project.pushed_at),
+        }));
 
-      setProjectsUser(projectData);
+        setProjectsUser(projectData);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoadingActive(false);
+      }
     }
 
     if (user) {
+      setLoadingActive(true);
       getUserInfo();
       getProjectsUser(user as string);
     } else {
-      console.log("sem usuário");
+      setLoadingActive(false);
     }
-  }, []);
+  }, [user]);
+
+  if (loadingActive) {
+    return (
+      <div className={styles.divLoading}>
+        <Loading loadingActive={loadingActive} />
+      </div>
+    );
+  }
 
   if (userInformations) {
     return (
