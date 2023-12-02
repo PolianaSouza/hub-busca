@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Search from "@/components/search/Search";
 import styles from "@/styles/Home.module.css";
+import Head from "next/head";
 
 import { UserProps } from "@/types/user";
 import { api } from "@/services/apiClient";
@@ -11,14 +12,13 @@ export default function Home() {
 
   async function findUser(nameUser: string) {
     const { data } = await api.get(`users/${nameUser}`);
-    console.log("meus dados", data);
 
     const {
       avatar_url,
       name,
       login,
       location,
-      folowers,
+      followers,
       following,
       id,
       public_repos,
@@ -30,7 +30,7 @@ export default function Home() {
       name,
       login,
       location,
-      folowers,
+      followers,
       following,
       id,
       public_repos,
@@ -41,15 +41,20 @@ export default function Home() {
   }
 
   return (
-    <main className={styles.mainPage}>
-      <div className={styles.cardSearch}>
-        <h1 className={styles.logo}>
-          <strong className={styles.strong}>HUB</strong>usca
-        </h1>
-        <p className={styles.description}>Encontre Devs no GitHub</p>
-        <Search findUser={findUser} />
-        {user && <UserCard user={user} />}
-      </div>
-    </main>
+    <>
+      <Head>
+        <title>Home</title>
+      </Head>
+      <main className={styles.mainPage}>
+        <div className={styles.cardSearch}>
+          <h1 className={styles.logo}>
+            <strong className={styles.strong}>HUB</strong>usca
+          </h1>
+          <p className={styles.description}>Encontre Devs no GitHub</p>
+          <Search findUser={findUser} />
+          {user && <UserCard user={user} />}
+        </div>
+      </main>
+    </>
   );
 }
