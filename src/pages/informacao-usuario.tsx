@@ -113,18 +113,20 @@ export default function InformationUser() {
         {userInformations && (
           <main>
             <section className={styles.section}>
-              <div className={styles.repositorios}>
-                <p>
-                  <strong className={styles.strong}>
-                    {userInformations?.public_repos}
-                  </strong>{" "}
-                  repositórios públicos
-                </p>
+              <div className={styles.containerProject}>
+                <div className={styles.publicRepositories}>
+                  <p>
+                    <strong className={styles.strong}>
+                      {userInformations?.public_repos}
+                    </strong>{" "}
+                    repositórios públicos
+                  </p>
+                </div>
+                {projectsUser &&
+                  projectsUser.map((project) => (
+                    <ProjectUserCard key={project.name} project={project} />
+                  ))}
               </div>
-              {projectsUser &&
-                projectsUser.map((project) => (
-                  <ProjectUserCard key={project.name} project={project} />
-                ))}
             </section>
           </main>
         )}
