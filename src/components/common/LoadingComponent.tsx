@@ -7,11 +7,14 @@ export default function Loading(props: { loadingActive: boolean }) {
   return (
     <div>
       {props.loadingActive && (
-        <Lottie
-          animationData={loading}
-          loop={true}
-          className={styles.loading}
-        />
+        <div>
+          <Lottie
+            animationData={loading}
+            loop={true}
+            className={styles.loading}
+          />
+          <p>Buscando usuários</p>
+        </div>
       )}
     </div>
   );
