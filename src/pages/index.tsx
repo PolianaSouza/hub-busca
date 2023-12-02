@@ -89,7 +89,6 @@ export default function Home() {
           {user && <UserCard user={user} />}
           <ToastContainer autoClose={1000} />
         </div>
-        <div></div>
       </main>
     </>
   );
