@@ -8,8 +8,8 @@ import UserInformations from "@/components/user/UserInformations";
 import { UserProps } from "@/types/user";
 import { ProjectProps } from "@/types/projects";
 import ProjectUserCard from "@/components/user/ProjectUserCard";
-import { ChevronLeft } from "lucide-react";
 import Loading from "@/components/common/LoadingComponent";
+import UserNotExist from "@/components/user/UserNotExist";
 
 export default function InformationUser() {
   const router = useRouter();
@@ -20,6 +20,12 @@ export default function InformationUser() {
 
   const [projectsUser, setProjectsUser] = useState<ProjectProps[] | null>(null);
   const [loadingActive, setLoadingActive] = useState(true);
+
+  const options = {
+    title: "Usuário não informado!",
+    message:
+      "por favor busque por um usuário no gitHub para ter acesso a suas informações",
+  };
 
   useEffect(() => {
     async function getUserInfo() {
@@ -125,20 +131,6 @@ export default function InformationUser() {
       </div>
     );
   } else {
-    return (
-      <div className={styles.containerNotUser}>
-        <div className={styles.cardMessage}>
-          <h1>Usuário não informado!</h1>
-          <p>
-            por favor busque por um usuário no gitHub para ter acesso a suas
-            informações
-          </p>
-          <button className={styles.btnGoBack} onClick={() => router.push("/")}>
-            <ChevronLeft />
-            Buscar usuário
-          </button>
-        </div>
-      </div>
-    );
+    return <UserNotExist options={options} />;
   }
 }
