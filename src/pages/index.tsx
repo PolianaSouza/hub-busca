@@ -25,7 +25,6 @@ export default function Home() {
     const storedListUsers = localStorage.getItem("recentSearches");
     const verifyListUsers = storedListUsers ? JSON.parse(storedListUsers) : [];
     const newListUsers = [user, ...verifyListUsers];
-    console.log(newListUsers);
     localStorage.setItem("recentSearches", JSON.stringify(newListUsers));
   }
 
@@ -35,7 +34,6 @@ export default function Home() {
     try {
       setLoadingActive(true);
       const { data } = await api.get(`users/${nameUser}`);
-      console.log(data);
       const {
         avatar_url,
         name,
@@ -69,9 +67,8 @@ export default function Home() {
         notify("Usuário não encontrado");
       } else {
         notify("Erro ao buscar usuário");
-        // setLoadingActive(false);
       }
-      console.log("aqui", error);
+      console.log(error);
     }
   }
 
