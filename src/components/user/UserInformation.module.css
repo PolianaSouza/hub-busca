@@ -1,0 +1,87 @@
+.container {
+  width: 90%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.img {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  box-shadow: 2px 2px 9.8px 1px rgba(107, 107, 107, 0.26);
+}
+
+.cardInfoUser {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: self-start;
+  gap: 15px;
+  width: 90%;
+  margin-top: 20px;
+}
+
+.cardParagraph {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.paragraph {
+  color: #5e5d5d;
+  font-size: 1.2rem;
+}
+
+.btnGoBack {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 90%;
+  background-color: #6a46be;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 10%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.btnGoBack:hover {
+  background-color: #a976eb;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img {
+    margin-right: 0;
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .cardInfoUser {
+    align-items: self-start;
+  }
+
+  .paragraph {
+    color: #5e5d5d;
+    font-size: 1rem;
+  }
+
+  .btnGoBack {
+    margin-top: 10%;
+    font-size: 1rem;
+  }
+}
