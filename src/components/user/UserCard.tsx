@@ -8,7 +8,12 @@ export default function UserCard(props: { user: UserProps }) {
   return (
     <div className={styles.container}>
       <div>
-        <Link href={"/informacao-usuario"}>
+        <Link
+          href={{
+            pathname: "/informacao-usuario",
+            query: { user: props.user.login },
+          }}
+        >
           <Image
             src={props.user.avatar_url}
             alt="foto de perfil"
