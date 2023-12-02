@@ -11,14 +11,23 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
   const [user, setUser] = useState<UserProps | null>(null);
-
   const [loadingActive, setLoadingActive] = useState(false);
+  const [recentSearches, setRecentSearches] = useState<UserProps[]>([]);
 
   const notify = (message: string) => {
     toast.error(message, {
       position: toast.POSITION.TOP_CENTER,
     });
   };
+
+  function addRecentSearches(user: UserProps) {
+    setRecentSearches([user, ...recentSearches]);
+    const storedListUsers = localStorage.getItem("recentSearches");
+    const verifyListUsers = storedListUsers ? JSON.parse(storedListUsers) : [];
+    const newListUsers = [user, ...verifyListUsers];
+    console.log(newListUsers);
+    localStorage.setItem("recentSearches", JSON.stringify(newListUsers));
+  }
 
   async function findUser(nameUser: string) {
     try {
@@ -51,6 +60,7 @@ export default function Home() {
 
       setUser(userData);
       setLoadingActive(false);
+      addRecentSearches(userData);
     } catch (error: any) {
       setLoadingActive(false);
       if (error.response.status === 404) {
