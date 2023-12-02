@@ -30,6 +30,8 @@ export default function Home() {
   }
 
   async function findUser(nameUser: string) {
+    if (nameUser === "") return notify("Digite um nome de usuário");
+
     try {
       setLoadingActive(true);
       const { data } = await api.get(`users/${nameUser}`);
