@@ -1,0 +1,73 @@
+.link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 90%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 3.75px 3px 6.375px 0.75px rgba(216, 215, 218, 0.47);
+  padding: 20px;
+}
+
+.link:hover {
+  cursor: pointer;
+  background-color: #f7f3fdb3;
+}
+
+.infoProject {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.infoProject h1 {
+  font-size: 1.3rem;
+  color: #121212;
+}
+
+.infoProject > p {
+  font-size: 1.1rem;
+  color: #505050;
+}
+
+.languageAndData {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.languageAndData p {
+  font-size: 1.12rem;
+  color: #505050;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 800px) {
+  .infoProject {
+    margin-left: 10%;
+  }
+
+  .languageAndData {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .infoProject > p {
+    font-size: 1rem;
+  }
+
+  .languageAndData p {
+    font-size: 0.9rem;
+    color: #505050;
+  }
+}
